@@ -14,11 +14,11 @@ target_link_libraries(main-shared PRIVATE lib-shared)
 # SYCL sources
 add_library(lib-static STATIC)
 target_sources(lib-static PRIVATE FILE_SET SYCL FILES lib.cpp)
-#target_compile_options(lib-static PRIVATE -fsycl-targets=spir64_gen)
+# Adding linker options to INTERFACE to make them propagate to the targets
+# linking with the static library
+target_link_options(lib-static INTERFACE -fsycl-targets=spir64_gen -Xs "-device pvc -options -cl-poison-unsupported-fp64-kernels")
 
 add_library(lib-shared SHARED)
 target_sources(lib-shared PRIVATE FILE_SET SYCL FILES lib.cpp)
-target_compile_options(lib-static PRIVATE -fsycl-targets=spir64_gen)
+target_compile_options(lib-shared PRIVATE -fsycl-targets=spir64_gen)
 target_link_options(lib-shared PRIVATE -fsycl-targets=spir64_gen -Xs "-device pvc -options -cl-poison-unsupported-fp64-kernels")
-
-#target_link_options(lib-static PRIVATE -fsycl-targets=spir64_gen -Xs "-device pvc -options -cl-poison-unsupported-fp64-kernels")
