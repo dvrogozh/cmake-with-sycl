@@ -1,0 +1,236 @@
++ docker build -f Dockerfile -t sycl-example --progress=plain --no-cache .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.13kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/intel/omix:0.4.0-devel-ubuntu24.04
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/intel/omix:0.4.0-devel-ubuntu24.04@sha256:ee48e296161b7da989ffbfbbb3390b428e842590eda6258e1f86def3970ef0b3
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 142B done
+#5 DONE 0.0s
+
+#6 [2/7] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential	  cmake	    git	    libssl-dev	   && rm -rf /var/lib/apt/lists/*
+#6 0.394 Get:1 https://repositories.intel.com/gpu/ubuntu noble/intel-omix/0.4.0 InRelease [4651 B]
+#6 0.544 Get:2 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#6 0.552 Get:3 https://repositories.intel.com/gpu/ubuntu noble/intel-omix/0.4.0/unified amd64 Packages [61.4 kB]
+#6 0.842 Get:4 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#6 0.916 Get:5 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [50.0 kB]
+#6 1.002 Get:6 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1530 kB]
+#6 1.307 Get:7 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1791 kB]
+#6 1.465 Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1240 kB]
+#6 1.550 Get:9 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#6 1.769 Get:10 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#6 1.990 Get:11 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#6 3.570 Get:12 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+#6 3.823 Get:13 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#6 3.988 Get:14 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#6 4.162 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1562 kB]
+#6 4.402 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1902 kB]
+#6 4.658 Get:17 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2151 kB]
+#6 4.926 Get:18 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [55.8 kB]
+#6 5.087 Get:19 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [671 B]
+#6 5.247 Get:20 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [35.9 kB]
+#6 5.407 Get:21 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [48.9 kB]
+#6 5.461 Fetched 32.6 MB in 5s (6378 kB/s)
+#6 5.461 Reading package lists...
+#6 6.457 Reading package lists...
+#6 7.439 Building dependency tree...
+#6 7.626 Reading state information...
+#6 7.839 build-essential is already the newest version (12.10ubuntu1).
+#6 7.839 cmake is already the newest version (3.28.3-1build7).
+#6 7.839 git is already the newest version (1:2.43.0-1ubuntu7.3).
+#6 7.839 The following additional packages will be installed:
+#6 7.840   libssl3t64 openssl
+#6 7.841 Suggested packages:
+#6 7.841   libssl-doc
+#6 7.898 The following NEW packages will be installed:
+#6 7.899   libssl-dev
+#6 7.900 The following packages will be upgraded:
+#6 7.901   libssl3t64 openssl
+#6 8.423 2 upgraded, 1 newly installed, 0 to remove and 42 not upgraded.
+#6 8.423 Need to get 5356 kB of archives.
+#6 8.423 After this operation, 13.3 MB of additional disk space will be used.
+#6 8.423 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libssl3t64 amd64 3.0.13-0ubuntu3.15 [1944 kB]
+#6 9.615 Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssl amd64 3.0.13-0ubuntu3.15 [1003 kB]
+#6 9.832 Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libssl-dev amd64 3.0.13-0ubuntu3.15 [2408 kB]
+#6 10.16 debconf: delaying package configuration, since apt-utils is not installed
+#6 10.20 Fetched 5356 kB in 2s (2597 kB/s)
+(Reading database ...a28713.files and directories currently installed.)
+#6 10.26 Preparing to unpack .../libssl3t64_3.0.13-0ubuntu3.15_amd64.deb ...
+#6 10.27 Unpacking libssl3t64:amd64 (3.0.13-0ubuntu3.15) over (3.0.13-0ubuntu3.12) ...
+#6 10.43 Setting up libssl3t64:amd64 (3.0.13-0ubuntu3.15) ...
+(Reading database ...a28713.files and directories currently installed.)
+#6 10.49 Preparing to unpack .../openssl_3.0.13-0ubuntu3.15_amd64.deb ...
+#6 10.50 Unpacking openssl (3.0.13-0ubuntu3.15) over (3.0.13-0ubuntu3.12) ...
+#6 10.57 Selecting previously unselected package libssl-dev:amd64.
+#6 10.57 Preparing to unpack .../libssl-dev_3.0.13-0ubuntu3.15_amd64.deb ...
+#6 10.58 Unpacking libssl-dev:amd64 (3.0.13-0ubuntu3.15) ...
+#6 10.79 Setting up libssl-dev:amd64 (3.0.13-0ubuntu3.15) ...
+#6 10.80 Setting up openssl (3.0.13-0ubuntu3.15) ...
+#6 10.81 Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+#6 DONE 11.0s
+
+#7 [3/7] WORKDIR /workspace
+#7 DONE 0.0s
+
+#8 [4/7] RUN git clone -b sycl-language --depth 1 https://gitlab.kitware.com/vito.gamberini/cmake.git	&& cd cmake && cmake -B _build -S .	-DCMAKE_INSTALL_PREFIX=/workspace/_install >/dev/null	&& cmake --build _build -j >/dev/null	&& cmake --install _build >/dev/null
+#8 0.307 Cloning into 'cmake'...
+Updating files:n100%l(31638/31638),4done.8)
+#8 DONE 123.4s
+
+#9 [5/7] RUN which cmake && cmake --version
+#9 0.226 /workspace/_install/bin/cmake
+#9 0.232 cmake version 4.4.20260901-gd4aa3e2
+#9 0.232
+#9 0.232 CMake suite maintained and supported by Kitware (kitware.com/cmake).
+#9 DONE 0.2s
+
+#10 [6/7] COPY CMakeLists.txt lib.h lib.cpp main.cpp build.sh ./
+#10 DONE 0.3s
+
+#11 [7/7] RUN source /opt/intel/oneapi/setvars.sh && cmake -B _build -S .	-DCMAKE_BUILD_TYPE=Release	 -DCMAKE_EXPERIMENTAL_SYCL=c0d1fb10-2ece-420e-9d29-7d7f2b300f25	      -DCMAKE_SYCL_COMPILER=icpx     && cmake --build _build --target all --verbose -j1
+#11 0.616
+#11 0.616 :: initializing oneAPI environment ...
+#11 0.616    bash: BASH_VERSION = 5.2.21(1)-release
+#11 0.616    args: Using "$@" for setvars.sh arguments:
+#11 0.633 :: ccl -- latest
+#11 0.689 :: compiler -- latest
+#11 0.756 :: debugger -- latest
+#11 0.809 :: dev-utilities -- latest
+#11 0.852 :: dnnl -- latest
+#11 0.886 :: dpl -- latest
+#11 0.944 :: mkl -- latest
+#11 1.012 :: mpi -- latest
+#11 1.095 :: pti -- latest
+#11 1.157 :: tbb -- latest
+#11 1.217 :: tcm -- latest
+#11 1.259 :: umf -- latest
+#11 1.330 :: oneAPI environment initialized ::
+#11 1.330
+#11 1.627 -- The CXX compiler identification is GNU 13.3.0
+#11 1.658 CMake Warning (experimental) at CMakeLists.txt:3 (project):
+#11 1.658   CMake's support for the SYCL programming language is experimental.	It is
+#11 1.658   meant only for experimentation and feedback to CMake developers.
+#11 1.658 This warning is for project developers.  Use -Wno-author or -Wno-experimental
+#11 1.658 to suppress it.
+#11 1.658
+#11 2.095 -- The SYCL compiler identification is IntelLLVM 2026.1.1
+#11 2.128 -- Detecting CXX compiler ABI info
+#11 2.345 -- Detecting CXX compiler ABI info - done
+#11 2.473 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#11 2.475 -- Detecting CXX compile features
+#11 2.478 -- Detecting CXX compile features - done
+#11 2.526 -- Detecting SYCL compiler ABI info
+#11 2.531 CMake Warning (experimental) at /workspace/_build/CMakeFiles/CMakeScratch/TryCompile-YoJmWF/CMakeLists.txt:2 (project):
+#11 2.531   CMake's support for the SYCL programming language is experimental.	It is
+#11 2.531   meant only for experimentation and feedback to CMake developers.
+#11 2.531 This warning is for project developers.  Use -Wno-author or -Wno-experimental
+#11 2.531 to suppress it.
+#11 2.531
+#11 3.157 -- Detecting SYCL compiler ABI info - done
+#11 3.335 -- Check for working SYCL compiler: /opt/intel/oneapi/compiler/2026.1/bin/icpx
+#11 3.339 CMake Warning (experimental) at /workspace/_build/CMakeFiles/CMakeScratch/TryCompile-Y4jjkW/CMakeLists.txt:2 (project):
+#11 3.339   CMake's support for the SYCL programming language is experimental.	It is
+#11 3.339   meant only for experimentation and feedback to CMake developers.
+#11 3.339 This warning is for project developers.  Use -Wno-author or -Wno-experimental
+#11 3.339 to suppress it.
+#11 3.339
+#11 7.950 -- Check for working SYCL compiler: /opt/intel/oneapi/compiler/2026.1/bin/icpx - works
+#11 7.952 -- Detecting SYCL compile features
+#11 7.957 -- Detecting SYCL compile features - done
+#11 7.966 -- Configuring done (6.6s)
+#11 7.987 -- Generating done (0.0s)
+#11 7.987 -- Build files have been written to: /workspace/_build
+#11 8.012 Change Dir: '/workspace/_build'
+#11 8.016
+#11 8.016 Run Build Command(s): /workspace/_install/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile -j1 -Otarget CMAKE_USES_TERMINAL_PREFIX=+ all
+#11 8.035 /workspace/_install/bin/cmake -S/workspace -B/workspace/_build --check-build-system CMakeFiles/Makefile.cmake 0
+#11 8.056 /workspace/_install/bin/cmake -E cmake_progress_start /workspace/_build/CMakeFiles /workspace/_build//CMakeFiles/progress.marks
+#11 8.070 /usr/bin/gmake  -f CMakeFiles/Makefile2 all
+#11 8.074 gmake[1]: Entering directory '/workspace/_build'
+#11 8.074 /usr/bin/gmake  -f CMakeFiles/lib-static.dir/build.make CMakeFiles/lib-static.dir/depend
+#11 8.078 gmake[2]: Entering directory '/workspace/_build'
+#11 8.078 cd /workspace/_build && /workspace/_install/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/lib-static.dir/DependInfo.cmake "--color=" lib-static
+#11 8.093 Dependee "/workspace/_build/CMakeFiles/lib-static.dir/DependInfo.cmake" is newer than depender "/workspace/_build/CMakeFiles/lib-static.dir/depend.internal".
+#11 8.093 Dependee "/workspace/_build/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "/workspace/_build/CMakeFiles/lib-static.dir/depend.internal".
+#11 8.093 Scanning dependencies of target lib-static
+#11 8.097 gmake[2]: Leaving directory '/workspace/_build'
+#11 8.098 /usr/bin/gmake  -f CMakeFiles/lib-static.dir/build.make CMakeFiles/lib-static.dir/build
+#11 8.101 gmake[2]: Entering directory '/workspace/_build'
+#11 8.116 [ 12%] Building SYCL object CMakeFiles/lib-static.dir/lib.cpp.o
+#11 8.119 /opt/intel/oneapi/compiler/2026.1/bin/icpx -fsycl   -O3 -DNDEBUG -O3 -DNDEBUG -x c++ -o CMakeFiles/lib-static.dir/lib.cpp.o -c /workspace/lib.cpp
+#11 12.34 [ 25%] Linking SYCL static library liblib-static.a
+#11 12.34 /workspace/_install/bin/cmake -P CMakeFiles/lib-static.dir/cmake_clean_target.cmake
+#11 12.35 /workspace/_install/bin/cmake -E cmake_link_script CMakeFiles/lib-static.dir/link.txt --verbose=1
+#11 12.38 /usr/bin/ar qc liblib-static.a "CMakeFiles/lib-static.dir/lib.cpp.o"
+#11 12.38 /usr/bin/ranlib liblib-static.a
+#11 12.38 gmake[2]: Leaving directory '/workspace/_build'
+#11 12.39 [ 25%] Built target lib-static
+#11 12.40 /usr/bin/gmake  -f CMakeFiles/main-static.dir/build.make CMakeFiles/main-static.dir/depend
+#11 12.40 gmake[2]: Entering directory '/workspace/_build'
+#11 12.40 cd /workspace/_build && /workspace/_install/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/main-static.dir/DependInfo.cmake "--color=" main-static
+#11 12.42 gmake[2]: Leaving directory '/workspace/_build'
+#11 12.42 /usr/bin/gmake  -f CMakeFiles/main-static.dir/build.make CMakeFiles/main-static.dir/build
+#11 12.42 gmake[2]: Entering directory '/workspace/_build'
+#11 12.44 [ 37%] Building CXX object CMakeFiles/main-static.dir/main.cpp.o
+#11 12.44 /usr/bin/c++	 -O3 -DNDEBUG -MD -MT CMakeFiles/main-static.dir/main.cpp.o -MF CMakeFiles/main-static.dir/main.cpp.o.d -o CMakeFiles/main-static.dir/main.cpp.o -c /workspace/main.cpp
+#11 12.49 [ 50%] Linking SYCL executable main-static
+#11 12.50 /workspace/_install/bin/cmake -E cmake_link_script CMakeFiles/main-static.dir/link.txt --verbose=1
+#11 12.59 icpx: warning: linked binaries do not contain expected 'spir64_gen-unknown-unknown' target; found targets: 'spir64-unknown-unknown' [-Wsycl-target]
+#11 12.91 Compilation from IR - skipping loading of FCL
+#11 12.91 Build succeeded.
+#11 13.25 /opt/intel/oneapi/compiler/2026.1/bin/icpx -fsycl -O3 -DNDEBUG -O3 -DNDEBUG -fsycl-targets=spir64_gen -Xs "-device pvc -options -cl-poison-unsupported-fp64-kernels" "CMakeFiles/main-static.dir/main.cpp.o" -o main-static	-L/opt/intel/oneapi/tbb/2023.1/lib/intel64/lib	liblib-static.a
+#11 13.25 gmake[2]: Leaving directory '/workspace/_build'
+#11 13.26 [ 50%] Built target main-static
+#11 13.27 /usr/bin/gmake  -f CMakeFiles/lib-shared.dir/build.make CMakeFiles/lib-shared.dir/depend
+#11 13.27 gmake[2]: Entering directory '/workspace/_build'
+#11 13.27 cd /workspace/_build && /workspace/_install/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/lib-shared.dir/DependInfo.cmake "--color=" lib-shared
+#11 13.29 Dependee "/workspace/_build/CMakeFiles/lib-shared.dir/DependInfo.cmake" is newer than depender "/workspace/_build/CMakeFiles/lib-shared.dir/depend.internal".
+#11 13.29 Dependee "/workspace/_build/CMakeFiles/CMakeDirectoryInformation.cmake" is newer than depender "/workspace/_build/CMakeFiles/lib-shared.dir/depend.internal".
+#11 13.29 Scanning dependencies of target lib-shared
+#11 13.29 gmake[2]: Leaving directory '/workspace/_build'
+#11 13.29 /usr/bin/gmake  -f CMakeFiles/lib-shared.dir/build.make CMakeFiles/lib-shared.dir/build
+#11 13.30 gmake[2]: Entering directory '/workspace/_build'
+#11 13.31 [ 62%] Building SYCL object CMakeFiles/lib-shared.dir/lib.cpp.o
+#11 13.31 /opt/intel/oneapi/compiler/2026.1/bin/icpx -fsycl -Dlib_shared_EXPORTS  -O3 -DNDEBUG -O3 -DNDEBUG -fPIC -fsycl-targets=spir64_gen -x c++ -o CMakeFiles/lib-shared.dir/lib.cpp.o -c /workspace/lib.cpp
+#11 17.53 [ 75%] Linking SYCL shared library liblib-shared.so
+#11 17.53 /workspace/_install/bin/cmake -E cmake_link_script CMakeFiles/lib-shared.dir/link.txt --verbose=1
+#11 17.84 Compilation from IR - skipping loading of FCL
+#11 17.84 Build succeeded.
+#11 18.02 /opt/intel/oneapi/compiler/2026.1/bin/icpx -fsycl -fPIC -O3 -DNDEBUG -O3 -DNDEBUG -shared -fsycl-targets=spir64_gen -Xs "-device pvc -options -cl-poison-unsupported-fp64-kernels" -Wl,-soname,liblib-shared.so -o liblib-shared.so "CMakeFiles/lib-shared.dir/lib.cpp.o"
+#11 18.02 gmake[2]: Leaving directory '/workspace/_build'
+#11 18.04 [ 75%] Built target lib-shared
+#11 18.04 /usr/bin/gmake  -f CMakeFiles/main-shared.dir/build.make CMakeFiles/main-shared.dir/depend
+#11 18.05 gmake[2]: Entering directory '/workspace/_build'
+#11 18.05 cd /workspace/_build && /workspace/_install/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/main-shared.dir/DependInfo.cmake "--color=" main-shared
+#11 18.07 gmake[2]: Leaving directory '/workspace/_build'
+#11 18.07 /usr/bin/gmake  -f CMakeFiles/main-shared.dir/build.make CMakeFiles/main-shared.dir/build
+#11 18.07 gmake[2]: Entering directory '/workspace/_build'
+#11 18.09 [ 87%] Building CXX object CMakeFiles/main-shared.dir/main.cpp.o
+#11 18.09 /usr/bin/c++	 -O3 -DNDEBUG -MD -MT CMakeFiles/main-shared.dir/main.cpp.o -MF CMakeFiles/main-shared.dir/main.cpp.o.d -o CMakeFiles/main-shared.dir/main.cpp.o -c /workspace/main.cpp
+#11 18.14 [100%] Linking CXX executable main-shared
+#11 18.15 /workspace/_install/bin/cmake -E cmake_link_script CMakeFiles/main-shared.dir/link.txt --verbose=1
+#11 18.28 /usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/main-shared.dir/link.d "CMakeFiles/main-shared.dir/main.cpp.o" -o main-shared  -Wl,-rpath,/workspace/_build liblib-shared.so
+#11 18.29 gmake[2]: Leaving directory '/workspace/_build'
+#11 18.29 [100%] Built target main-shared
+#11 18.29 gmake[1]: Leaving directory '/workspace/_build'
+#11 18.29 /workspace/_install/bin/cmake -E cmake_progress_start /workspace/_build/CMakeFiles 0
+#11 18.31
+#11 DONE 18.3s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 17.3s done
+#12 writing image sha256:ed57b1afca02f3a247fbeec2f12d92323a467182f145eef9576f28ef8d7d4f5a done
+#12 naming to docker.io/library/sycl-example done
+#12 DONE 17.3s
