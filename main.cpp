@@ -1,5 +1,5 @@
 #include "lib.h"
 
 int main() {
-  extern_lib_uses_sycl();
+  extern_lib_uses_cuda();
 }

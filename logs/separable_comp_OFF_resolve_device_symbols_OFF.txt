@@ -1,0 +1,287 @@
++ docker build -f Dockerfile -t cuda-example --progress=plain --build-arg CMAKE_CUDA_SEPARABLE_COMPILATION=OFF --build-arg CMAKE_CUDA_RESOLVE_DEVICE_SYMBOLS=OFF --no-cache .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 711B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/nvidia/cuda:13.3.1-devel-ubuntu26.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/nvidia/cuda:13.3.1-devel-ubuntu26.04
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 141B done
+#5 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential	  cmake	    git	    && rm -rf /var/lib/apt/lists/*
+#6 0.548 Get:1 http://security.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+#6 0.567 Get:2 http://archive.ubuntu.com/ubuntu resolute InRelease [136 kB]
+#6 0.761 Get:3 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2604/x86_64  InRelease [1578 B]
+#6 0.816 Get:4 http://archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+#6 0.833 Get:5 http://security.ubuntu.com/ubuntu resolute-security/main amd64 Packages [578 kB]
+#6 0.939 Get:6 http://archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+#6 1.054 Get:7 http://archive.ubuntu.com/ubuntu resolute/universe amd64 Packages [20.1 MB]
+#6 1.079 Get:8 http://security.ubuntu.com/ubuntu resolute-security/restricted amd64 Packages [489 kB]
+#6 1.175 Get:9 http://security.ubuntu.com/ubuntu resolute-security/multiverse amd64 Packages [11.2 kB]
+#6 1.198 Get:10 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2604/x86_64  Packages [188 kB]
+#6 1.241 Get:11 http://security.ubuntu.com/ubuntu resolute-security/universe amd64 Packages [212 kB]
+#6 2.331 Get:12 http://archive.ubuntu.com/ubuntu resolute/restricted amd64 Packages [189 kB]
+#6 2.509 Get:13 http://archive.ubuntu.com/ubuntu resolute/multiverse amd64 Packages [352 kB]
+#6 2.601 Get:14 http://archive.ubuntu.com/ubuntu resolute/main amd64 Packages [1874 kB]
+#6 2.774 Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 Packages [338 kB]
+#6 2.864 Get:16 http://archive.ubuntu.com/ubuntu resolute-updates/restricted amd64 Packages [505 kB]
+#6 2.960 Get:17 http://archive.ubuntu.com/ubuntu resolute-updates/multiverse amd64 Packages [14.6 kB]
+#6 3.031 Get:18 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 Packages [743 kB]
+#6 3.141 Get:19 http://archive.ubuntu.com/ubuntu resolute-backports/universe amd64 Packages [3306 B]
+#6 3.267 Fetched 26.2 MB in 3s (8919 kB/s)
+#6 3.267 Reading package lists...
+#6 4.120 Reading package lists...
+#6 4.943 Building dependency tree...
+#6 5.109 Reading state information...
+#6 5.152 Solving dependencies...
+#6 5.318 The following additional packages will be installed:
+#6 5.318   cmake-data git-man libarchive13t64 libbrotli1 libcurl3t64-gnutls libcurl4t64
+#6 5.318   liberror-perl libexpat1 libgssapi-krb5-2 libjsoncpp26 libk5crypto3
+#6 5.318   libkeyutils1 libkrb5-3 libkrb5support0 libnghttp2-14 libpsl5t64 librhash1
+#6 5.319   librtmp1 libssh2-1t64 libuv1t64 libxml2-16
+#6 5.321 Suggested packages:
+#6 5.321   cmake-doc cmake-format elpa-cmake-mode ninja-build gettext-base git-doc
+#6 5.321   git-email git-gui gitk gitweb git-cvs git-svn lrzip krb5-doc krb5-user
+#6 5.321 Recommended packages:
+#6 5.321   less ssh-client krb5-locales publicsuffix
+#6 5.380 The following NEW packages will be installed:
+#6 5.380   cmake cmake-data git git-man libarchive13t64 libbrotli1 libcurl3t64-gnutls
+#6 5.380   libcurl4t64 liberror-perl libexpat1 libgssapi-krb5-2 libjsoncpp26
+#6 5.380   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libnghttp2-14 libpsl5t64
+#6 5.382   librhash1 librtmp1 libssh2-1t64 libuv1t64 libxml2-16
+#6 5.383 The following packages will be upgraded:
+#6 5.385   build-essential
+#6 5.642 1 upgraded, 23 newly installed, 0 to remove and 50 not upgraded.
+#6 5.642 Need to get 25.3 MB of archives.
+#6 5.642 After this operation, 96.5 MB of additional disk space will be used.
+#6 5.642 Get:1 http://security.ubuntu.com/ubuntu resolute-security/main amd64 libcurl4t64 amd64 8.18.0-1ubuntu2.5 [427 kB]
+#6 5.658 Get:2 http://archive.ubuntu.com/ubuntu resolute/main amd64 libexpat1 amd64 2.7.4-1 [94.0 kB]
+#6 5.881 Get:3 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libkrb5support0 amd64 1.22.1-2ubuntu4.1 [33.5 kB]
+#6 5.972 Get:4 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libk5crypto3 amd64 1.22.1-2ubuntu4.1 [82.0 kB]
+#6 5.980 Get:5 http://security.ubuntu.com/ubuntu resolute-security/main amd64 libcurl3t64-gnutls amd64 8.18.0-1ubuntu2.5 [419 kB]
+#6 6.090 Get:6 http://archive.ubuntu.com/ubuntu resolute/main amd64 libkeyutils1 amd64 1.6.3-6ubuntu3 [10.6 kB]
+#6 6.169 Get:7 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libkrb5-3 amd64 1.22.1-2ubuntu4.1 [361 kB]
+#6 6.388 Get:8 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libgssapi-krb5-2 amd64 1.22.1-2ubuntu4.1 [147 kB]
+#6 6.553 Get:9 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libxml2-16 amd64 2.15.2+dfsg-0.1ubuntu0.1 [606 kB]
+#6 6.711 Get:10 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libnghttp2-14 amd64 1.68.0-2ubuntu0.2 [71.0 kB]
+#6 6.785 Get:11 http://archive.ubuntu.com/ubuntu resolute/main amd64 libpsl5t64 amd64 0.21.2-1.1build2 [59.5 kB]
+#6 6.858 Get:12 http://archive.ubuntu.com/ubuntu resolute/main amd64 libuv1t64 amd64 1.51.0-2ubuntu1 [103 kB]
+#6 6.932 Get:13 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 build-essential amd64 12.12ubuntu2.26.04.2 [5158 B]
+#6 7.003 Get:14 http://archive.ubuntu.com/ubuntu resolute/main amd64 cmake-data all 4.2.3-2ubuntu2 [2581 kB]
+#6 7.205 Get:15 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libarchive13t64 amd64 3.8.5-1ubuntu2.2 [397 kB]
+#6 7.287 Get:16 http://archive.ubuntu.com/ubuntu resolute/main amd64 libbrotli1 amd64 1.2.0-3build1 [343 kB]
+#6 7.367 Get:17 http://archive.ubuntu.com/ubuntu resolute/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-3 [59.0 kB]
+#6 7.439 Get:18 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libssh2-1t64 amd64 1.11.1-1ubuntu0.26.04.4 [138 kB]
+#6 7.521 Get:19 http://archive.ubuntu.com/ubuntu resolute/main amd64 libjsoncpp26 amd64 1.9.6-5 [84.0 kB]
+#6 7.594 Get:20 http://archive.ubuntu.com/ubuntu resolute/main amd64 librhash1 amd64 1.4.6-1.1 [133 kB]
+#6 7.667 Get:21 http://archive.ubuntu.com/ubuntu resolute/main amd64 cmake amd64 4.2.3-2ubuntu2 [13.7 MB]
+#6 7.945 Get:22 http://archive.ubuntu.com/ubuntu resolute/main amd64 liberror-perl all 0.17030-1 [23.5 kB]
+#6 8.016 Get:23 http://archive.ubuntu.com/ubuntu resolute/main amd64 git-man all 1:2.53.0-1ubuntu1 [1202 kB]
+#6 8.102 Get:24 http://archive.ubuntu.com/ubuntu resolute/main amd64 git amd64 1:2.53.0-1ubuntu1 [4227 kB]
+#6 9.209 Fetched 25.3 MB in 3s (9221 kB/s)
+#6 9.252 Selecting previously unselected package libexpat1:amd64.
+(Reading database ...a21108.files and directories currently installed.)
+#6 9.262 Preparing to unpack .../00-libexpat1_2.7.4-1_amd64.deb ...
+#6 9.267 Unpacking libexpat1:amd64 (2.7.4-1) ...
+#6 9.323 Selecting previously unselected package libkrb5support0:amd64.
+#6 9.324 Preparing to unpack .../01-libkrb5support0_1.22.1-2ubuntu4.1_amd64.deb ...
+#6 9.327 Unpacking libkrb5support0:amd64 (1.22.1-2ubuntu4.1) ...
+#6 9.371 Selecting previously unselected package libk5crypto3:amd64.
+#6 9.372 Preparing to unpack .../02-libk5crypto3_1.22.1-2ubuntu4.1_amd64.deb ...
+#6 9.375 Unpacking libk5crypto3:amd64 (1.22.1-2ubuntu4.1) ...
+#6 9.422 Selecting previously unselected package libkeyutils1:amd64.
+#6 9.423 Preparing to unpack .../03-libkeyutils1_1.6.3-6ubuntu3_amd64.deb ...
+#6 9.426 Unpacking libkeyutils1:amd64 (1.6.3-6ubuntu3) ...
+#6 9.466 Selecting previously unselected package libkrb5-3:amd64.
+#6 9.469 Preparing to unpack .../04-libkrb5-3_1.22.1-2ubuntu4.1_amd64.deb ...
+#6 9.471 Unpacking libkrb5-3:amd64 (1.22.1-2ubuntu4.1) ...
+#6 9.536 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#6 9.539 Preparing to unpack .../05-libgssapi-krb5-2_1.22.1-2ubuntu4.1_amd64.deb ...
+#6 9.542 Unpacking libgssapi-krb5-2:amd64 (1.22.1-2ubuntu4.1) ...
+#6 9.593 Selecting previously unselected package libxml2-16:amd64.
+#6 9.594 Preparing to unpack .../06-libxml2-16_2.15.2+dfsg-0.1ubuntu0.1_amd64.deb ...
+#6 9.597 Unpacking libxml2-16:amd64 (2.15.2+dfsg-0.1ubuntu0.1) ...
+#6 9.662 Selecting previously unselected package libnghttp2-14:amd64.
+#6 9.664 Preparing to unpack .../07-libnghttp2-14_1.68.0-2ubuntu0.2_amd64.deb ...
+#6 9.667 Unpacking libnghttp2-14:amd64 (1.68.0-2ubuntu0.2) ...
+#6 9.711 Selecting previously unselected package libpsl5t64:amd64.
+#6 9.713 Preparing to unpack .../08-libpsl5t64_0.21.2-1.1build2_amd64.deb ...
+#6 9.716 Unpacking libpsl5t64:amd64 (0.21.2-1.1build2) ...
+#6 9.758 Selecting previously unselected package libuv1t64:amd64.
+#6 9.760 Preparing to unpack .../09-libuv1t64_1.51.0-2ubuntu1_amd64.deb ...
+#6 9.762 Unpacking libuv1t64:amd64 (1.51.0-2ubuntu1) ...
+#6 9.808 Preparing to unpack .../10-build-essential_12.12ubuntu2.26.04.2_amd64.deb ...
+#6 9.817 Unpacking build-essential (12.12ubuntu2.26.04.2) over (12.12ubuntu2.26.04.1) ...
+#6 9.870 Selecting previously unselected package cmake-data.
+#6 9.872 Preparing to unpack .../11-cmake-data_4.2.3-2ubuntu2_all.deb ...
+#6 9.892 Unpacking cmake-data (4.2.3-2ubuntu2) ...
+#6 10.29 Selecting previously unselected package libarchive13t64:amd64.
+#6 10.29 Preparing to unpack .../12-libarchive13t64_3.8.5-1ubuntu2.2_amd64.deb ...
+#6 10.30 Unpacking libarchive13t64:amd64 (3.8.5-1ubuntu2.2) ...
+#6 10.35 Selecting previously unselected package libbrotli1:amd64.
+#6 10.36 Preparing to unpack .../13-libbrotli1_1.2.0-3build1_amd64.deb ...
+#6 10.36 Unpacking libbrotli1:amd64 (1.2.0-3build1) ...
+#6 10.42 Selecting previously unselected package librtmp1:amd64.
+#6 10.42 Preparing to unpack .../14-librtmp1_2.4+20151223.gitfa8646d.1-3_amd64.deb ...
+#6 10.42 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-3) ...
+#6 10.47 Selecting previously unselected package libssh2-1t64:amd64.
+#6 10.47 Preparing to unpack .../15-libssh2-1t64_1.11.1-1ubuntu0.26.04.4_amd64.deb ...
+#6 10.47 Unpacking libssh2-1t64:amd64 (1.11.1-1ubuntu0.26.04.4) ...
+#6 10.52 Selecting previously unselected package libcurl4t64:amd64.
+#6 10.52 Preparing to unpack .../16-libcurl4t64_8.18.0-1ubuntu2.5_amd64.deb ...
+#6 10.52 Unpacking libcurl4t64:amd64 (8.18.0-1ubuntu2.5) ...
+#6 10.58 Selecting previously unselected package libjsoncpp26:amd64.
+#6 10.58 Preparing to unpack .../17-libjsoncpp26_1.9.6-5_amd64.deb ...
+#6 10.58 Unpacking libjsoncpp26:amd64 (1.9.6-5) ...
+#6 10.63 Selecting previously unselected package librhash1:amd64.
+#6 10.63 Preparing to unpack .../18-librhash1_1.4.6-1.1_amd64.deb ...
+#6 10.63 Unpacking librhash1:amd64 (1.4.6-1.1) ...
+#6 10.67 Selecting previously unselected package cmake.
+#6 10.68 Preparing to unpack .../19-cmake_4.2.3-2ubuntu2_amd64.deb ...
+#6 10.68 Unpacking cmake (4.2.3-2ubuntu2) ...
+#6 11.34 Selecting previously unselected package libcurl3t64-gnutls:amd64.
+#6 11.35 Preparing to unpack .../20-libcurl3t64-gnutls_8.18.0-1ubuntu2.5_amd64.deb ...
+#6 11.35 Unpacking libcurl3t64-gnutls:amd64 (8.18.0-1ubuntu2.5) ...
+#6 11.40 Selecting previously unselected package liberror-perl.
+#6 11.40 Preparing to unpack .../21-liberror-perl_0.17030-1_all.deb ...
+#6 11.40 Unpacking liberror-perl (0.17030-1) ...
+#6 11.45 Selecting previously unselected package git-man.
+#6 11.45 Preparing to unpack .../22-git-man_1%3a2.53.0-1ubuntu1_all.deb ...
+#6 11.45 Unpacking git-man (1:2.53.0-1ubuntu1) ...
+#6 11.51 Selecting previously unselected package git.
+#6 11.51 Preparing to unpack .../23-git_1%3a2.53.0-1ubuntu1_amd64.deb ...
+#6 11.53 Unpacking git (1:2.53.0-1ubuntu1) ...
+#6 11.80 Setting up libexpat1:amd64 (2.7.4-1) ...
+#6 11.80 Setting up libkeyutils1:amd64 (1.6.3-6ubuntu3) ...
+#6 11.81 Setting up libxml2-16:amd64 (2.15.2+dfsg-0.1ubuntu0.1) ...
+#6 11.82 Setting up libbrotli1:amd64 (1.2.0-3build1) ...
+#6 11.83 Setting up libuv1t64:amd64 (1.51.0-2ubuntu1) ...
+#6 11.84 Setting up libpsl5t64:amd64 (0.21.2-1.1build2) ...
+#6 11.85 Setting up libnghttp2-14:amd64 (1.68.0-2ubuntu0.2) ...
+#6 11.86 Setting up libkrb5support0:amd64 (1.22.1-2ubuntu4.1) ...
+#6 11.87 Setting up liberror-perl (0.17030-1) ...
+#6 11.87 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-3) ...
+#6 11.88 Setting up libjsoncpp26:amd64 (1.9.6-5) ...
+#6 11.89 Setting up libk5crypto3:amd64 (1.22.1-2ubuntu4.1) ...
+#6 11.90 Setting up build-essential (12.12ubuntu2.26.04.2) ...
+#6 11.90 Setting up git-man (1:2.53.0-1ubuntu1) ...
+#6 11.91 Setting up cmake-data (4.2.3-2ubuntu2) ...
+#6 11.94 Setting up librhash1:amd64 (1.4.6-1.1) ...
+#6 11.95 Setting up libkrb5-3:amd64 (1.22.1-2ubuntu4.1) ...
+#6 11.96 Setting up libssh2-1t64:amd64 (1.11.1-1ubuntu0.26.04.4) ...
+#6 11.97 Setting up libarchive13t64:amd64 (3.8.5-1ubuntu2.2) ...
+#6 11.97 Setting up libgssapi-krb5-2:amd64 (1.22.1-2ubuntu4.1) ...
+#6 11.99 Setting up libcurl4t64:amd64 (8.18.0-1ubuntu2.5) ...
+#6 11.99 Setting up libcurl3t64-gnutls:amd64 (8.18.0-1ubuntu2.5) ...
+#6 12.00 Setting up git (1:2.53.0-1ubuntu1) ...
+#6 12.03 Setting up cmake (4.2.3-2ubuntu2) ...
+#6 12.04 Processing triggers for libc-bin (2.43-2ubuntu2) ...
+#6 DONE 12.4s
+
+#7 [3/5] WORKDIR /workspace
+#7 DONE 0.0s
+
+#8 [4/5] COPY CMakeLists.txt lib.h lib.cu main.cpp build.sh ./
+#8 DONE 0.0s
+
+#9 [5/5] RUN cmake -B _build -S .	-DCMAKE_BUILD_TYPE=Release	 -DCMAKE_CUDA_SEPARABLE_COMPILATION=OFF	      -DCMAKE_CUDA_RESOLVE_DEVICE_SYMBOLS=OFF	  && cmake --build _build --target all --verbose -j1
+#9 0.480 -- The CXX compiler identification is GNU 15.2.0
+#9 1.809 -- The CUDA compiler identification is NVIDIA 13.3.73 with host compiler GNU 15.2.0
+#9 1.818 -- Detecting CXX compiler ABI info
+#9 2.034 -- Detecting CXX compiler ABI info - done
+#9 2.072 -- Check for working CXX compiler: /usr/bin/c++ - skipped
+#9 2.073 -- Detecting CXX compile features
+#9 2.075 -- Detecting CXX compile features - done
+#9 2.113 -- Detecting CUDA compiler ABI info
+#9 3.354 -- Detecting CUDA compiler ABI info - done
+#9 3.417 -- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+#9 3.421 -- Detecting CUDA compile features
+#9 3.422 -- Detecting CUDA compile features - done
+#9 3.437 CMAKE_CUDA_SEPARABLE_COMPILATION=OFF
+#9 3.437 CMAKE_CUDA_RESOLVE_DEVICE_SYMBOLS=OFF
+#9 3.437 -- Configuring done (3.2s)
+#9 3.448 -- Generating done (0.0s)
+#9 3.449 -- Build files have been written to: /workspace/_build
+#9 3.476 Change Dir: '/workspace/_build'
+#9 3.476
+#9 3.476 Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile -j1 all
+#9 3.501 /usr/bin/cmake -S/workspace -B/workspace/_build --check-build-system CMakeFiles/Makefile.cmake 0
+#9 3.524 /usr/bin/cmake -E cmake_progress_start /workspace/_build/CMakeFiles /workspace/_build//CMakeFiles/progress.marks
+#9 3.545 /usr/bin/gmake	 -f CMakeFiles/Makefile2 all
+#9 3.547 gmake[1]: Entering directory '/workspace/_build'
+#9 3.547 /usr/bin/gmake	 -f CMakeFiles/lib-static.dir/build.make CMakeFiles/lib-static.dir/depend
+#9 3.550 gmake[2]: Entering directory '/workspace/_build'
+#9 3.550 cd /workspace/_build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/lib-static.dir/DependInfo.cmake "--color=" lib-static
+#9 3.575 gmake[2]: Leaving directory '/workspace/_build'
+#9 3.575 /usr/bin/gmake	 -f CMakeFiles/lib-static.dir/build.make CMakeFiles/lib-static.dir/build
+#9 3.578 gmake[2]: Entering directory '/workspace/_build'
+#9 3.599 [ 12%] Building CUDA object CMakeFiles/lib-static.dir/lib.cu.o
+#9 3.601 /usr/local/cuda/bin/nvcc -forward-unknown-to-host-compiler   -O3 -DNDEBUG "--generate-code=arch=compute_75,code=[compute_75,sm_75]" -MD -MT CMakeFiles/lib-static.dir/lib.cu.o -MF CMakeFiles/lib-static.dir/lib.cu.o.d -x cu -c /workspace/lib.cu -o CMakeFiles/lib-static.dir/lib.cu.o
+#9 5.493 [ 25%] Linking CUDA static library liblib-static.a
+#9 5.495 /usr/bin/cmake -P CMakeFiles/lib-static.dir/cmake_clean_target.cmake
+#9 5.518 /usr/bin/cmake -E cmake_link_script CMakeFiles/lib-static.dir/link.txt --verbose=1
+#9 5.544 /usr/bin/ar qc liblib-static.a "CMakeFiles/lib-static.dir/lib.cu.o"
+#9 5.544 /usr/bin/ranlib liblib-static.a
+#9 5.545 gmake[2]: Leaving directory '/workspace/_build'
+#9 5.572 [ 25%] Built target lib-static
+#9 5.575 /usr/bin/gmake	 -f CMakeFiles/main-static.dir/build.make CMakeFiles/main-static.dir/depend
+#9 5.578 gmake[2]: Entering directory '/workspace/_build'
+#9 5.578 cd /workspace/_build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/main-static.dir/DependInfo.cmake "--color=" main-static
+#9 5.601 gmake[2]: Leaving directory '/workspace/_build'
+#9 5.601 /usr/bin/gmake	 -f CMakeFiles/main-static.dir/build.make CMakeFiles/main-static.dir/build
+#9 5.605 gmake[2]: Entering directory '/workspace/_build'
+#9 5.627 [ 37%] Building CXX object CMakeFiles/main-static.dir/main.cpp.o
+#9 5.629 /usr/bin/c++	-O3 -DNDEBUG -MD -MT CMakeFiles/main-static.dir/main.cpp.o -MF CMakeFiles/main-static.dir/main.cpp.o.d -o CMakeFiles/main-static.dir/main.cpp.o -c /workspace/main.cpp
+#9 5.692 [ 50%] Linking CXX executable main-static
+#9 5.695 /usr/bin/cmake -E cmake_link_script CMakeFiles/main-static.dir/link.txt --verbose=1
+#9 5.809 /usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/main-static.dir/link.d "CMakeFiles/main-static.dir/main.cpp.o" -o main-static   -L/usr/local/cuda/targets/x86_64-linux/lib	liblib-static.a -lcudadevrt -lcudart_static -lrt -lpthread -ldl
+#9 5.811 gmake[2]: Leaving directory '/workspace/_build'
+#9 5.832 [ 50%] Built target main-static
+#9 5.835 /usr/bin/gmake	 -f CMakeFiles/lib-shared.dir/build.make CMakeFiles/lib-shared.dir/depend
+#9 5.838 gmake[2]: Entering directory '/workspace/_build'
+#9 5.838 cd /workspace/_build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/lib-shared.dir/DependInfo.cmake "--color=" lib-shared
+#9 5.854 gmake[2]: Leaving directory '/workspace/_build'
+#9 5.855 /usr/bin/gmake	 -f CMakeFiles/lib-shared.dir/build.make CMakeFiles/lib-shared.dir/build
+#9 5.858 gmake[2]: Entering directory '/workspace/_build'
+#9 5.877 [ 62%] Building CUDA object CMakeFiles/lib-shared.dir/lib.cu.o
+#9 5.879 /usr/local/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dlib_shared_EXPORTS  -O3 -DNDEBUG "--generate-code=arch=compute_75,code=[compute_75,sm_75]" -Xcompiler=-fPIC -MD -MT CMakeFiles/lib-shared.dir/lib.cu.o -MF CMakeFiles/lib-shared.dir/lib.cu.o.d -x cu -c /workspace/lib.cu -o CMakeFiles/lib-shared.dir/lib.cu.o
+#9 7.744 [ 75%] Linking CUDA shared library liblib-shared.so
+#9 7.747 /usr/bin/cmake -E cmake_link_script CMakeFiles/lib-shared.dir/link.txt --verbose=1
+#9 7.859 /usr/bin/g++ -fPIC -shared -Wl,--dependency-file=CMakeFiles/lib-shared.dir/link.d -Wl,-soname,liblib-shared.so -o liblib-shared.so @CMakeFiles/lib-shared.dir/objects1.rsp @CMakeFiles/lib-shared.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"
+#9 7.861 gmake[2]: Leaving directory '/workspace/_build'
+#9 7.883 [ 75%] Built target lib-shared
+#9 7.886 /usr/bin/gmake	 -f CMakeFiles/main-shared.dir/build.make CMakeFiles/main-shared.dir/depend
+#9 7.890 gmake[2]: Entering directory '/workspace/_build'
+#9 7.890 cd /workspace/_build && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /workspace /workspace /workspace/_build /workspace/_build /workspace/_build/CMakeFiles/main-shared.dir/DependInfo.cmake "--color=" main-shared
+#9 7.914 gmake[2]: Leaving directory '/workspace/_build'
+#9 7.914 /usr/bin/gmake	 -f CMakeFiles/main-shared.dir/build.make CMakeFiles/main-shared.dir/build
+#9 7.917 gmake[2]: Entering directory '/workspace/_build'
+#9 7.939 [ 87%] Building CXX object CMakeFiles/main-shared.dir/main.cpp.o
+#9 7.941 /usr/bin/c++	-O3 -DNDEBUG -MD -MT CMakeFiles/main-shared.dir/main.cpp.o -MF CMakeFiles/main-shared.dir/main.cpp.o.d -o CMakeFiles/main-shared.dir/main.cpp.o -c /workspace/main.cpp
+#9 8.005 [100%] Linking CXX executable main-shared
+#9 8.008 /usr/bin/cmake -E cmake_link_script CMakeFiles/main-shared.dir/link.txt --verbose=1
+#9 8.112 /usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/main-shared.dir/link.d "CMakeFiles/main-shared.dir/main.cpp.o" -o main-shared  -Wl,-rpath,/workspace/_build liblib-shared.so
+#9 8.114 gmake[2]: Leaving directory '/workspace/_build'
+#9 8.135 [100%] Built target main-shared
+#9 8.138 gmake[1]: Leaving directory '/workspace/_build'
+#9 8.138 /usr/bin/cmake -E cmake_progress_start /workspace/_build/CMakeFiles 0
+#9 8.164
+#9 DONE 8.2s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 1.7s done
+#10 writing image sha256:05a022a27d048fb28e7be53a965f45cfa195a9599db547da154952d836d0a66b done
+#10 naming to docker.io/library/cuda-example done
+#10 DONE 1.7s
